@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
-    public float jumpHeight = 0.5f;
+    public float jumpHeight = 0.0001f;
     bool grounded;
     
 
@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
         grounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (grounded && velocity.y < 0)
         {
-            velocity.y = -3f;
+            velocity.y = -2f;
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
         }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        
 
     }
 }
