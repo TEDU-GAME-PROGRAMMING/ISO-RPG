@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 0.0001f;
     bool grounded;
     
+   
+    
 
     // Update is called once per frame
     void Update()
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
         velocity.y += gravity * Time.deltaTime;
+        
         controller.Move(velocity * Time.deltaTime);
 
         
