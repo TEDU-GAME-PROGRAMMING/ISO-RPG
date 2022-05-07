@@ -50,9 +50,33 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         
         controller.Move(velocity * Time.deltaTime);
-        
 
-        
+        /*
+        if (Input.GetKey(KeyCode.A))
+        {
+            anim.SetBool("isMoving", true);
+        }
+
+        else if (Input.GetKey(KeyCode.S))
+        {
+            anim.SetBool("isMoving", true);
+        }
+
+        else if (Input.GetKey(KeyCode.W))
+        {
+            anim.SetBool("isMoving", true);
+        }
+
+        else if (Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("isMoving", true);
+        }
+
+        else
+        {
+            anim.SetBool("isMoving", false);
+        }
+        */
 
     }
 }
