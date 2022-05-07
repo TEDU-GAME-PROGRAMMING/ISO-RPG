@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
 
     Transform target;
     NavMeshAgent agent;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class EnemyController : MonoBehaviour
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
         
-        
+   
         
     }
 
@@ -30,6 +31,7 @@ public class EnemyController : MonoBehaviour
         {
             agent.SetDestination(target.position);
         }
+        
         
     }
 

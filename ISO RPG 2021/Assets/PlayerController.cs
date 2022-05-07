@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
-        if(move!=Vector3.zero)
+        if(move!=Vector3.zero&&!anim.GetBool("inAir"))
         {
             anim.SetBool("isMoving", true);
         }
@@ -45,11 +45,18 @@ public class PlayerController : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
         if (Input.GetButtonDown("Jump") && grounded)
         {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            velocity.y = Mathf.Sqrt(jumpHeight * -4f * gravity);
+            anim.SetBool("inAir", true);
+
+        }
+        else
+        {
+            anim.SetBool("inAir", false);
         }
         velocity.y += gravity * Time.deltaTime;
         
         controller.Move(velocity * Time.deltaTime);
+        
 
         /*
         if (Input.GetKey(KeyCode.A))
