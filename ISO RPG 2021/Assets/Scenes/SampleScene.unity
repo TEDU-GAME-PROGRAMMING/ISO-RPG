@@ -792,7 +792,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  jumpHeight: 1.5
+  jumpHeight: 0.35
   anim: {fileID: 1046352569}
 --- !u!4 &1046352568
 Transform:
