@@ -10,6 +10,8 @@ public class EnemyController : MonoBehaviour
 
     Transform target;
     NavMeshAgent agent;
+    public Animator anim;
+    public PlayerHealth health;
     
 
     // Start is called before the first frame update
@@ -17,6 +19,7 @@ public class EnemyController : MonoBehaviour
     {
         target = PlayerManager.instance.player.transform;
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
         
    
         
@@ -26,11 +29,24 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(target.position, transform.position);
+        
 
-        if(distance <= lookRadius)
+        if(distance <= lookRadius&& distance>2f )
         {
+            anim.SetBool("inCombat", false);
+            anim.SetBool("hunting", true);
             agent.SetDestination(target.position);
+            
         }
+        else if(distance<=2f)
+        {
+            anim.SetBool("hunting",false);
+            anim.SetBool("inCombat", true);
+            damagePlayer(1);
+
+        }
+        
+        
         
         
     }
@@ -40,6 +56,10 @@ public class EnemyController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, lookRadius);
         
+    }
+    void damagePlayer(int damage)
+    {
+        health.TakeDamage(damage);
     }
 
 }
