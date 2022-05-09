@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 214551782}
   - component: {fileID: 214551781}
   - component: {fileID: 214551780}
-  - component: {fileID: 214551779}
   - component: {fileID: 214551784}
+  - component: {fileID: 214551785}
   m_Layer: 0
   m_Name: Mummy
   m_TagString: Untagged
@@ -144,21 +144,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &214551779
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214551778}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbc8d21e31be86b41b59efe155de90c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lookRadius: 5
-  anim: {fileID: 0}
-  health: {fileID: 0}
 --- !u!54 &214551780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -248,6 +233,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &214551785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214551778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1200193aa77c0347adec28163c79dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookRadius: 10
 --- !u!1001 &277779143
 PrefabInstance:
   m_ObjectHideFlags: 0
