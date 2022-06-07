@@ -5,7 +5,7 @@ using UnityEngine;
 public class RotateDirection : MonoBehaviour
 {
     bool aW = false;
-    bool aS=false;
+    bool aS = false;
     bool dW = false;
     bool ds = false;
 

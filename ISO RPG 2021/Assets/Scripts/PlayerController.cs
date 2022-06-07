@@ -39,11 +39,11 @@ public class PlayerController : MonoBehaviour
 
         if(move!=Vector3.zero&&!anim.GetBool("inAir"))
         {
-            anim.SetBool("isMoving", true);
+            anim.SetBool("Walking", true);
         }
         else
         {
-            anim.SetBool("isMoving", false);
+            anim.SetBool("Walking", false);
         }
 
         move = Quaternion.Euler(30, 45, 0) * move;
