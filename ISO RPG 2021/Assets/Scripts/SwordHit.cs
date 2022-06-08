@@ -10,6 +10,7 @@ public class SwordHit : MonoBehaviour
     {
         if(collision.gameObject.tag=="Sword")
         {
+            Debug.Log("Hit!");
             eh.currentHealth -= 25;
         }
     }
