@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     public Animator anim;
-    public PlayerHealth health;
+    
     
 
     // Start is called before the first frame update
@@ -38,7 +38,7 @@ public class EnemyController : MonoBehaviour
         {
             anim.SetBool("hunting",false);
             anim.SetBool("inCombat", true);
-            damagePlayer(1);
+            
 
         }
     }
@@ -50,9 +50,6 @@ public class EnemyController : MonoBehaviour
         
     }
 
-    void damagePlayer(int damage)
-    {
-        health.TakeDamage(damage);
-    }
+    
 
 }

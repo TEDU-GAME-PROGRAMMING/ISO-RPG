@@ -43,5 +43,24 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             anim.SetBool("Walking", false);
         }
+        if(Input.GetKey(KeyCode.Mouse0) && !(anim.GetBool("Walking")))
+        {
+            int rando = Random.Range(1, 4);
+            if(rando <=1.5)
+            {
+                anim.Play("Female Sword Attack 1", 0);
+            }
+            else if(rando <=2.5)
+            {
+                anim.Play("Female Sword Attack 2", 0);
+            }
+            else
+            {
+                anim.Play("Female Sword Attack 3", 0);
+            }
+        }
+            
+        }
+        
     }
-}
+
