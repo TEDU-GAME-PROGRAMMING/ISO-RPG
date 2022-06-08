@@ -43,6 +43,7 @@ public class ThirdPersonMovement : MonoBehaviour
         {
             anim.SetBool("Walking", false);
         }
+
         if(Input.GetKey(KeyCode.Mouse0) && !(anim.GetBool("Walking")))
         {
             int rando = Random.Range(1, 4);

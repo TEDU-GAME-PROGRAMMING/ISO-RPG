@@ -10,7 +10,7 @@ public class SwordHit : MonoBehaviour
     {
         if(collision.gameObject.tag=="Sword")
         {
-            eh.health -= 25;
+            eh.currentHealth -= 25;
         }
     }
 }

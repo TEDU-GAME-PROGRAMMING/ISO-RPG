@@ -6,24 +6,58 @@ public class EnemyHealth : MonoBehaviour
 {
     // Start is called before the first frame update
     public int maxHealth = 100;
-    public int health;
+    public int currentHealth;
     
-    public GameObject skeleton;
+    public GameObject enemy;
+    public EnemyHealthBar healthBar;
+
+    private bool isDead = false;
+    public Animator anim;
+
+    // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
-       if(health<=0)
+        if (Input.GetKeyDown(KeyCode.X))  //Testing purposes
         {
-            Destroy(skeleton);
+            TakeDamage(20);
         }
-        
-        
     }
-       
-    
+
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        healthBar.SetHealth(currentHealth);
+
+        anim.Play("Damage1", 0);
+
+        if (currentHealth <= 0 && !isDead)
+        {
+            //anim.Play("Damage2", 0);
+
+            //WaitForSeconds(2);
+
+            Die();
+        }
+
+    }
+    void Die()
+    {
+        isDead = true;
+
+        Destroy(enemy); 
+    }
+
+
+
 }
