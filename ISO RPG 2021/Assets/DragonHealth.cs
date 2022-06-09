@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-
-public class EnemyHealth : MonoBehaviour
+public class DragonHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public int maxHealth = 100;
+    public int maxHealth = 150;
     public int currentHealth;
-    
+
     public GameObject enemy;
     public PlayerHealth ph;
     public EnemyHealthBar healthBar;
@@ -41,14 +40,13 @@ public class EnemyHealth : MonoBehaviour
             ph.TakeDamage(1);
         }
         dis = Vector3.Distance(other.position, transform.position);
-        if(dis<2.5 && Input.GetKeyDown(KeyCode.Mouse0))
+        if (dis < 2.5 && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            
             TakeDamage(15);
         }
-        if(dis<2.5 && anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") &&!attacked)
+        if (dis < 2.5 && anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && !attacked)
         {
-            //ph.TakeDamage(1);
+            ph.TakeDamage(1);
             attacked = true;
         }
         else
@@ -73,7 +71,6 @@ public class EnemyHealth : MonoBehaviour
             //WaitForSeconds(2);
 
             Die();
-            ph.TakeDamage(-20);
             
         }
 
@@ -82,7 +79,8 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
 
-        Destroy(enemy); 
+        Destroy(enemy, 2f);
+        SceneManager.LoadScene("Ending");
     }
 
 

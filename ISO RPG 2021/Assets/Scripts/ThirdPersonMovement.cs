@@ -50,7 +50,7 @@ public class ThirdPersonMovement : MonoBehaviour
             if(rando <=1.5)
             {
                 anim.Play("Female Sword Attack 1", 0);
-                anim.
+                
             }
             else if(rando <=2.5)
             {

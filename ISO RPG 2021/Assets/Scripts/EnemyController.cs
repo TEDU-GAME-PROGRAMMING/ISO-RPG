@@ -27,9 +27,11 @@ public class EnemyController : MonoBehaviour
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
+
         if(distance <= lookRadius&& distance>2f )
         {
             anim.SetBool("inCombat", false);
+            anim.SetBool("dinCombat", false);
             anim.SetBool("hunting", true);
             agent.SetDestination(target.position);
             
@@ -41,6 +43,12 @@ public class EnemyController : MonoBehaviour
             
 
         }
+        if(distance<=4f)
+        {
+            anim.SetBool("dinCombat", true);
+        }
+       
+
     }
 
     void OnDrawGizmosSelected()

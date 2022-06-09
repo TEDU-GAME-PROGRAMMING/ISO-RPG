@@ -6331,7 +6331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc8d21e31be86b41b59efe155de90c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 10
+  lookRadius: 6
   anim: {fileID: 306191372}
 --- !u!136 &306191371
 CapsuleCollider:
@@ -6346,7 +6346,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!95 &306191372
 Animator:
   serializedVersion: 4
@@ -6367,34 +6367,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &306191373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 306191368}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb75933d37fb7c84a9b923aa7cba5e2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  player: {fileID: 0}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
-  timeBetweenAttacks: 0
-  projectile: {fileID: 0}
-  sightRange: 0
-  attackRange: 0
-  playerInSightRange: 0
-  playerInAttackRange: 0
 --- !u!114 &306191374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6410,11 +6382,13 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   enemy: {fileID: 306191368}
+  ph: {fileID: 2025415605}
   healthBar: {fileID: 359856069}
-  anim: {fileID: 0}
+  anim: {fileID: 306191372}
   heroAnim: {fileID: 1720940629}
   dis: 0
   other: {fileID: 1529466848}
+  attacked: 0
 --- !u!195 &306191375
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6449,7 +6423,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -16187,64 +16161,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c83909939429c1478d2869f00f95462, type: 3}
---- !u!1 &854883536
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 854883537}
-  - component: {fileID: 854883539}
-  - component: {fileID: 854883538}
-  m_Layer: 6
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &854883537
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854883536}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1529466848}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &854883538
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854883536}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.4, z: 0.8}
-  m_Center: {x: 0, y: 0, z: 0.5}
---- !u!114 &854883539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854883536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1898eb76106c0344e8bf490d9d846f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &857418687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16916,11 +16832,13 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   enemy: {fileID: 894114009}
+  ph: {fileID: 2025415605}
   healthBar: {fileID: 14998303}
-  anim: {fileID: 0}
+  anim: {fileID: 894114021}
   heroAnim: {fileID: 1720940629}
   dis: 0
   other: {fileID: 1529466848}
+  attacked: 0
 --- !u!54 &894114019
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20816,19 +20734,100 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941975545}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c864a3ef5c3626b46ae6092e897c2797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  enemy: {fileID: 0}
+  enemy: {fileID: 941975545}
+  ph: {fileID: 1810261566}
   healthBar: {fileID: 943653580}
-  anim: {fileID: 0}
+  anim: {fileID: 1170178211}
   heroAnim: {fileID: 1720940629}
   dis: 0
   other: {fileID: 1529466848}
+  attacked: 0
+--- !u!95 &1170178211 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9586004, guid: eb58e8f2831a51f45a44a261e6710cdd, type: 3}
+  m_PrefabInstance: {fileID: 198836669}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &1170178212
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941975545}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1170178213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941975545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc8d21e31be86b41b59efe155de90c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookRadius: 4
+  anim: {fileID: 1170178211}
+--- !u!195 &1170178214
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941975545}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 2
+  m_Acceleration: 2
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 1
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1170178215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941975545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c305eaa5be13b934992da4b6d72027fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  enemy: {fileID: 941975545}
+  ph: {fileID: 2025415605}
+  healthBar: {fileID: 943653580}
+  anim: {fileID: 1170178211}
+  heroAnim: {fileID: 1720940629}
+  dis: 0
+  other: {fileID: 1529466848}
+  attacked: 0
 --- !u!1001 &1170308876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21812,7 +21811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc8d21e31be86b41b59efe155de90c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 10
+  lookRadius: 6
   anim: {fileID: 1219555478}
 --- !u!136 &1219555477
 CapsuleCollider:
@@ -21848,34 +21847,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1219555479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1219555474}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb75933d37fb7c84a9b923aa7cba5e2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  player: {fileID: 2025415602}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 0
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
-  timeBetweenAttacks: 0
-  projectile: {fileID: 0}
-  sightRange: 0
-  attackRange: 0
-  playerInSightRange: 0
-  playerInAttackRange: 0
 --- !u!114 &1219555480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21891,24 +21862,13 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   enemy: {fileID: 1219555474}
+  ph: {fileID: 2025415605}
   healthBar: {fileID: 966682436}
   anim: {fileID: 1219555478}
   heroAnim: {fileID: 1720940629}
   dis: 0
   other: {fileID: 1529466848}
---- !u!65 &1219555481
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1219555474}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2, z: 1}
-  m_Center: {x: 0, y: 1, z: 0}
+  attacked: 0
 --- !u!195 &1219555482
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -21943,7 +21903,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -29781,7 +29741,7 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 1
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -30007,7 +29967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbc8d21e31be86b41b59efe155de90c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookRadius: 10
+  lookRadius: 6
   anim: {fileID: 1870070159}
 --- !u!136 &1870070158
 CapsuleCollider:
@@ -30022,7 +29982,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!95 &1870070159
 Animator:
   serializedVersion: 4
@@ -30043,34 +30003,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1870070160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1870070155}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb75933d37fb7c84a9b923aa7cba5e2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  player: {fileID: 0}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  whatIsPlayer:
-    serializedVersion: 2
-    m_Bits: 0
-  walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
-  timeBetweenAttacks: 0
-  projectile: {fileID: 0}
-  sightRange: 0
-  attackRange: 0
-  playerInSightRange: 0
-  playerInAttackRange: 0
 --- !u!114 &1870070161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30086,11 +30018,13 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   enemy: {fileID: 1870070155}
+  ph: {fileID: 2025415605}
   healthBar: {fileID: 1271546101}
-  anim: {fileID: 0}
+  anim: {fileID: 1870070159}
   heroAnim: {fileID: 1720940629}
   dis: 0
   other: {fileID: 1529466848}
+  attacked: 0
 --- !u!195 &1870070162
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -30125,7 +30059,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -33550,7 +33484,6 @@ GameObject:
   - component: {fileID: 2025415604}
   - component: {fileID: 2025415603}
   - component: {fileID: 2025415605}
-  - component: {fileID: 2025415606}
   m_Layer: 6
   m_Name: Fem Char
   m_TagString: Untagged
@@ -33623,22 +33556,6 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 304375204}
---- !u!54 &2025415606
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2025415601}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 0
 --- !u!1 &2026033507
 GameObject:
   m_ObjectHideFlags: 0
