@@ -38,7 +38,7 @@ public class EnemyHealth : MonoBehaviour
         }*/
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
-            ph.TakeDamage(1);
+            ph.TakeDamage(3);
         }
         dis = Vector3.Distance(other.position, transform.position);
         if(dis<2.5 && Input.GetKeyDown(KeyCode.Mouse0))
