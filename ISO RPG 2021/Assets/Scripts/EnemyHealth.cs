@@ -13,6 +13,9 @@ public class EnemyHealth : MonoBehaviour
 
     private bool isDead = false;
     public Animator anim;
+    public Animator heroAnim;
+    public float dis;
+    public Transform other;
 
     // Start is called before the first frame update
     void Start()
@@ -26,9 +29,14 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X))  //Testing purposes
+        /*if (Input.GetKeyDown(KeyCode.X))  //Testing purposes
         {
             TakeDamage(20);
+        }*/
+        dis = Vector3.Distance(other.position, transform.position);
+        if(dis<2.5 && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            TakeDamage(15);
         }
     }
 
@@ -39,7 +47,7 @@ public class EnemyHealth : MonoBehaviour
 
         healthBar.SetHealth(currentHealth);
 
-        anim.Play("Damage1", 0);
+        //anim.Play("Damage1", 0);
 
         if (currentHealth <= 0 && !isDead)
         {
